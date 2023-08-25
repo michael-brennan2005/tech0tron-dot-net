@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tech0tron</title>
+    <link>http://tech0tron.net/</link>
+    <description>Recent content on tech0tron</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2023, Michael Brennan.</copyright>
+    <lastBuildDate>Thu, 24 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://tech0tron.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Oceanman v0.4</title>
+      <link>http://tech0tron.net/oceanman-v0.4/</link>
+      <pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://tech0tron.net/oceanman-v0.4/</guid>
+      <description>Oceanman is a toy renderer I&amp;rsquo;ve been making this summer to teach myself computer graphics. It&amp;rsquo;s the first renderer I&amp;rsquo;ve ever built and I&amp;rsquo;m pretty happy with where it&amp;rsquo;s gotten to! I&amp;rsquo;ll be leaving for college next week, and I&amp;rsquo;ll probably have a lot less free time to be working on this project. So I figure now is a good time to talk about what I&amp;rsquo;ve built so far.
+We&amp;rsquo;ll look at how Oceanman creates this image: Resource loading At startup Oceanman needs to load any resources it&amp;rsquo;s going to use to the GPU.</description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>http://tech0tron.net/resources/</link>
+      <pubDate>Mon, 21 Aug 2023 23:27:07 -0600</pubDate>
+      
+      <guid>http://tech0tron.net/resources/</guid>
+      <description>Useful/cool/englightening/interesting links I&amp;rsquo;ve found.
+General/Career Z-Library - Their link changes frequently so I go to the wikipedia page and use the URL that&amp;rsquo;s on there. Absolutely essential tool when it comes to learning programming Essays on programming that I think about a lot Don&amp;rsquo;t Call Yourself a Programmer, and Other Career Advice How to feel good - Basically an intro to cognitive behavioral therapy &amp;amp; meditation. Xe laso&amp;rsquo;s blog Joel Spolsky&amp;rsquo;s blog Paul Graham&amp;rsquo;s blog The Crossover Project - Series about whether software engineers are &amp;ldquo;really&amp;rdquo; engineers.</description>
+    </item>
+    
+  </channel>
+</rss>

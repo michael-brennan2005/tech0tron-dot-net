@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://tech0tron.net/images/favicon.png" />
+<title>Oceanman v0.4 | tech0tron</title>
+<meta name="title" content="Oceanman v0.4" />
+<meta name="description" content="Oceanman is a toy renderer I&rsquo;ve been making this summer to teach myself computer graphics. It&rsquo;s the first renderer I&rsquo;ve ever built and I&rsquo;m pretty happy with where it&rsquo;s gotten to! I&rsquo;ll be leaving for college next week, and I&rsquo;ll probably have a lot less free time to be working on this project. So I figure now is a good time to talk about what I&rsquo;ve built so far.
+We&rsquo;ll look at how Oceanman creates this image: Resource loading At startup Oceanman needs to load any resources it&rsquo;s going to use to the GPU." />
+<meta name="keywords" content="" />
+
+
+<meta property="og:title" content="Oceanman v0.4" />
+<meta property="og:description" content="Oceanman is a toy renderer I&rsquo;ve been making this summer to teach myself computer graphics. It&rsquo;s the first renderer I&rsquo;ve ever built and I&rsquo;m pretty happy with where it&rsquo;s gotten to! I&rsquo;ll be leaving for college next week, and I&rsquo;ll probably have a lot less free time to be working on this project. So I figure now is a good time to talk about what I&rsquo;ve built so far.
+We&rsquo;ll look at how Oceanman creates this image: Resource loading At startup Oceanman needs to load any resources it&rsquo;s going to use to the GPU." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tech0tron.net/oceanman-v0.4/" /><meta property="og:image" content="http://tech0tron.net/images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-08-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-08-24T00:00:00+00:00" /><meta property="og:site_name" content="tech0tron" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://tech0tron.net/images/share.png"/>
+
+<meta name="twitter:title" content="Oceanman v0.4"/>
+<meta name="twitter:description" content="Oceanman is a toy renderer I&rsquo;ve been making this summer to teach myself computer graphics. It&rsquo;s the first renderer I&rsquo;ve ever built and I&rsquo;m pretty happy with where it&rsquo;s gotten to! I&rsquo;ll be leaving for college next week, and I&rsquo;ll probably have a lot less free time to be working on this project. So I figure now is a good time to talk about what I&rsquo;ve built so far.
+We&rsquo;ll look at how Oceanman creates this image: Resource loading At startup Oceanman needs to load any resources it&rsquo;s going to use to the GPU."/>
+
+
+
+<meta itemprop="name" content="Oceanman v0.4">
+<meta itemprop="description" content="Oceanman is a toy renderer I&rsquo;ve been making this summer to teach myself computer graphics. It&rsquo;s the first renderer I&rsquo;ve ever built and I&rsquo;m pretty happy with where it&rsquo;s gotten to! I&rsquo;ll be leaving for college next week, and I&rsquo;ll probably have a lot less free time to be working on this project. So I figure now is a good time to talk about what I&rsquo;ve built so far.
+We&rsquo;ll look at how Oceanman creates this image: Resource loading At startup Oceanman needs to load any resources it&rsquo;s going to use to the GPU."><meta itemprop="datePublished" content="2023-08-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-08-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1556"><meta itemprop="image" content="http://tech0tron.net/images/share.png"/>
+<meta itemprop="keywords" content="" />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #282828;
+      color: #ebdbb2;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #fbf1c7;
+    }
+
+    a {
+      color: #83a598;
+    }
+
+    code {
+      background-color: #1d2021;
+    }
+
+    pre code {
+      color: #ebdbb2;
+    }
+
+    blockquote {
+      color: #ebdbb2;
+    }
+
+    textarea,
+    input {
+      background-color: #1d2021;
+      color: #ebdbb2;
+    }
+
+    .helptext {
+      color: #d5c4a1;
+    }
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>tech0tron</h2>
+</a>
+<nav><a href="/">Home</a>
+
+<a href="/resources/">Resources</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Oceanman v0.4</h1>
+<p>
+  <i>
+    <time datetime='2023-08-24' pubdate>
+      24 Aug, 2023
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>Oceanman is a toy renderer I&rsquo;ve been making this summer to teach myself computer graphics. It&rsquo;s the first renderer I&rsquo;ve ever built and I&rsquo;m pretty happy with where it&rsquo;s gotten to!
+I&rsquo;ll be leaving for college next week, and I&rsquo;ll probably have a lot less free time to be working on this project. So I figure now is a good time to talk about what I&rsquo;ve built so far.</p>
+<p>We&rsquo;ll look at how Oceanman creates this image:
+<img src="/august2023-oceanman/final-render.png" alt="Final render"></p>
+<h2 id="resource-loading">Resource loading</h2>
+<p>At startup Oceanman needs to load any resources it&rsquo;s going to use to the GPU. Right now those resources are the .glTF file that contains the scene&rsquo;s objects, and the various .dds files
+for image-based lighting - a 2D texture for the BRDF lookup, and cubemaps for the skybox, diffuse IBL, and specular IBL.</p>
+<p>Loading the glTF file is pretty simple. glTF files store meshes in a scene graph like structure, so Oceanman walks through that graph and adds all those meshes to a single list; another list
+is made for all of the file&rsquo;s materials. Those lists are then put into a Scene struct, that then gets passed to every render pass that needs info about the scene:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Scene</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> meshes: Vec<span style="color:#f92672">&lt;</span>Mesh<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> materials: Vec<span style="color:#f92672">&lt;</span>Material<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> scene: <span style="color:#a6e22e">SceneUniform</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> lighting: <span style="color:#a6e22e">LightingUniform</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Aside from <code>Mesh</code> and <code>Material</code> objects, which are pretty self-explanatory, <code>Scene</code> also contains a <code>SceneUniform</code> that holds the matrices for view and perspective projection, and a <code>LightingUniform</code> that holds the positions &amp; colors for point lights in the scene.</p>
+<p>Loading the .dds files is simple as well. DDS files store raw RGBA values, so all that&rsquo;s needed is to iterate through the file&rsquo;s data buffer and convert the 32-bit floats it stores to 16-bit floats. The BRDF lookup, diffuse map and specular map get stored in an <code>IBL</code> struct:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">IBL</span> {
+</span></span><span style="display:flex;"><span>    brdf_lookup: <span style="color:#a6e22e">Texture</span>,
+</span></span><span style="display:flex;"><span>    diffuse_radiance: <span style="color:#a6e22e">Cubemap</span>,
+</span></span><span style="display:flex;"><span>    specular_radiance: <span style="color:#a6e22e">Cubemap</span>
+</span></span><span style="display:flex;"><span>}  
+</span></span></code></pre></div><p>and the skybox gets held by the <code>Skybox</code> pass which is its only user. <code>Texture</code> and <code>Cubemap</code> just hold their nessecary wgpu handles.</p>
+<p>One thing about resource loading is that right now, it&rsquo;s <em>slooow</em>. I tried optimizing the glTF loading and found most of the time taken up by decoding image data. As for why .dds loading takes so long and I&rsquo;m not sure: if I had to guess it would just be because the files are so large (the skybox in the final render is 128MB!!). I think I could improve loading times by making my own uncompressed, binary file format, where the only real work is just uploading data to the GPU - no need for walking a scene graph or decoding images.</p>
+<h2 id="deferred-rendering">Deferred rendering</h2>
+<p>After our resources have been uploaded, Oceanman can begin rendering. The first pass Oceanman does is <code>WriteGBuffers</code>. Oceanman is a deferred renderer: we first render all the geometrical &amp; material data to multiple textures, called G-buffers, and then we do a second pass where we actually compute lighting for each fragment.</p>
+<p>Oceanman uses 4 G-buffers:</p>
+<ul>
+<li>Albedo: an RGBA8UnormSrgb texture, which stores the surface color of each fragment.</li>
+<li>Normal: an RGBA8Unorm texture, which stores the world-space normal of each fragment.</li>
+<li>Material: an RGBA8Unorm texture, which stores the metalness and roughness of each fragment, in the R channel and G channel respectively.</li>
+<li>Depth: a Depth32Float texture, used as the depth attachment in the <code>WriteGBuffers</code> pass.</li>
+</ul>
+<p>Here&rsquo;s how each of those buffers look:</p>
+<p><em>Alebdo</em>:
+<img src="/august2023-oceanman/albedo.png" alt="Albedo g-buffer">
+<em>Normal</em>:
+<img src="/august2023-oceanman/normal.png" alt="Normal g-buffer">
+<em>Material</em>:
+<img src="/august2023-oceanman/material.png" alt="Material g-buffer">
+<em>Depth (clamped [.99608 - 1.0]):</em>
+<img src="/august2023-oceanman/depth.png" alt="Depth g-buffer"></p>
+<h2 id="image-based-lighting">Image-based lighting</h2>
+<p>After we write our gbuffers, we can calculate our lighting in the <code>Compose</code> pass. Oceanman makes use of PBR, and calculates lighting from both direct sources (i.e point lights), and an image-based light.</p>
+<p>Calculating lighting from direct sources is relatively simple. The psuedocode is this:</p>
+<pre tabindex="0"><code>let total_direct_lighting = (0.0, 0.0, 0.0)
+for each light:
+    total_direct_lighting += BRDF * radiance * dot(n, l)
+</code></pre><p>The radiance is the how much each light affects the surface point we&rsquo;re rendering - in Oceanman this is just the light&rsquo;s color divided by the square of the light&rsquo;s distance to the surface (lights further away -&gt; lower contribution to lighting at this surface point). The dot(n, l) scales the lighting contribution depending on how perpendicular the light is to the surface. The BRDF is the more tricky part. Conceptually, <a href="https://www.cs.princeton.edu/courses/archive/fall06/cos526/tmp/wynn.pdf">this paper helped me the most in understanding what a BRDF is</a>: in essence, it computes the ratio of outgoing light to incoming light. Implementation-wise, Oceanman uses the Cook-Torrance BRDF, which models diffuse lighting as a constant term (<code>surface color / PI</code>) and specular lighting as the product of a normal distribution function, geometry function, and fresnel function. I just ended up using the ones implemented in <a href="https://learnopengl.com/PBR/Theory">LearnOpenGL&rsquo;s tutorials</a>, which does a better job of explaining those 3 functions than I could.</p>
+<p>Image-based lighting is a bit of a trickier beast, and again, <a href="https://learnopengl.com/PBR/IBL/Diffuse-irradiance">LearnOpenGL&rsquo;s tutorials</a> do a great job of explaining the minutiae. But to summarize, with image-based lighting, we require two cubemaps: an irradiance cubemap, that contains all of the image&rsquo;s contributions to diffuse lighting for each possible surface normal; and a prefilter cubemap, that contains all of the image&rsquo;s contributions to specular lighting for each possible surface normal.</p>
+<p>For getting the irradiance map&rsquo;s contribution, all we do is sample that cubemap texture with our surface point&rsquo;s given normal. Getting the prefilter map&rsquo;s contribution is a bit tricker: it requires sampling the prefilter map with our surface point&rsquo;s reflected vector (<code>reflect(-view, normal)</code>) and roughness (the higher the roughness, a higher mip-map level will be sampled from, giving blurrier reflection), and then multiplying the prefilter map&rsquo;s sample with a BRDF value from a lookup table. Ultimately, the shader code for IBL looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-wgsl" data-lang="wgsl"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> nDotV <span style="color:#f92672">=</span> max(dot(n, v), <span style="color:#ae81ff">0.0</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> r <span style="color:#f92672">=</span> reflect(<span style="color:#f92672">-</span>v, n);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> kS <span style="color:#f92672">=</span> schlick_fresnel_roughness(nDotV, f0, roughness);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> kD <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1.0</span> <span style="color:#f92672">-</span> kS) <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1.0</span> <span style="color:#f92672">-</span> metalness);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> irradiance <span style="color:#f92672">=</span> textureSample(diffuse_irradiance, ibl_s, n).rgb;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> diffuse <span style="color:#f92672">=</span> irradiance <span style="color:#f92672">*</span> albedo;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> roughness_level <span style="color:#f92672">=</span> f32(textureNumLevels(specular_prefilter)) <span style="color:#f92672">*</span> roughness <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2.0</span> <span style="color:#f92672">-</span> roughness);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> prefiltered_color <span style="color:#f92672">=</span> textureSampleLevel(specular_prefilter, ibl_s, r, roughness_level).rgb;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> brdf <span style="color:#f92672">=</span> textureSample(brdf_lut, ibl_s, vec2<span style="color:#f92672">&lt;</span>f32<span style="color:#f92672">&gt;</span>(nDotV, roughness)).rg;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> specular <span style="color:#f92672">=</span> prefiltered_color <span style="color:#f92672">*</span> (f0 <span style="color:#f92672">*</span> brdf.x <span style="color:#f92672">+</span> brdf.y);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> ambient <span style="color:#f92672">=</span> (kD <span style="color:#f92672">*</span> diffuse <span style="color:#f92672">+</span> specular);
+</span></span></code></pre></div><p>This ambient term is then added with our total_direct_lighting (called <code>l0</code> in the actual shader) to give us the final lighting for our scene.</p>
+<p><em>Lighting from direct lights</em>:
+<img src="/august2023-oceanman/direct-lights.png" alt="Direct lights">
+<em>Lighting from diffuse IBL</em>:
+<img src="/august2023-oceanman/diffuse-lights.png" alt="Diffuse IBL">
+<em>Lighting from specular IBL</em>:
+<img src="/august2023-oceanman/specular-lights.png" alt="Specular IBL">
+<em>Lighting all put together</em>:
+<img src="/august2023-oceanman/final-compose.png" alt="Final compose"></p>
+<h2 id="skybox">Skybox</h2>
+<p>Adding the skybox is in its own seperate pass, aptly named <code>Skybox</code>. The skybox is just rendered as a large cube with the skybox as it&rsquo;s texture.</p>
+<p><img src="/august2023-oceanman/skybox.png" alt="Skybox"></p>
+<h2 id="tonemapping--fxaa">Tonemapping &amp; FXAA</h2>
+<p>With all the final geometry &amp; lighting being rendered, we can now move onto post-processing effects, of which Oceanman has two: tonemapping &amp; FXAA.</p>
+<p>The <code>Compose</code> and <code>Skybox</code> passes both work in HDR color space, with 16 bits per color channel. The <code>Tonemapping</code> pass maps those colors into standard RGBA8 colors:</p>
+<p><img src="/august2023-oceanman/tonemapping.png" alt="Tonemapping"></p>
+<p>I implemented the Uncharted 2 tonemapping detailed in <a href="https://64.github.io/tonemapping/">this article</a>.</p>
+<p>After the tonemapping pass comes <code>FXAA</code>, or fast-aproximate anti aliasing. I implemented it mostly by following the <a href="https://developer.download.nvidia.com/assets/gamedev/files/sdk/11/FXAA_WhitePaper.pdf">original paper</a> and this <a href="http://blog.simonrodriguez.fr/articles/2016/07/implementing_fxaa.html">blog post</a>. I think this pass is still a work-in-progress just because up-close, the results look a bit&hellip; wonky?</p>
+<p><em>Previous frame w/ FXAA applied</em>:
+<img src="/august2023-oceanman/fxaa.png" alt="FXAA"></p>
+<p><em>FXAA zoomed in</em>:</p>
+<p><img src="/august2023-oceanman/fxaa-up-close.png" alt="FXAA zoomed in"></p>
+<p><em>No FXAA zoomed in</em>:</p>
+<p><img src="/august2023-oceanman/nofxaa-up-close.png" alt="no FXAA zoomed in"></p>
+<p>Definitely something that needs to debugged. I made FXAA toggleable though so this effect won&rsquo;t always interfere with the final image.</p>
+<h2 id="ui">UI</h2>
+<p>The last bit of rendering Oceanman does is rendering the debug UI, which right now is just done in <code>Renderer::render()</code> rather than its own pass. The UI is created with the <code>egui</code> library, very similar to Dear ImGUI if you come from C++.</p>
+<p><img src="/august2023-oceanman/ui.png" alt="UI"></p>
+<p>Aside from some very basic controls for FXAA and the camera, the two major features is the loader section and shaders section. Both were implemented somewhat late in the project, but if I was to redo this project from scratch I would implement those two features first. Both features have been huge for speeding up development: the loader section cuts down significantly on startup times and switching between different models/skyboxes for testing; and the shader section avoids recompiling Oceanman on every shader change, which has made shader development a lot more iterable and fun!</p>
+<h2 id="profiling">Profiling</h2>
+<p>I got these numbers from RenderDoc&rsquo;s (same tool I&rsquo;ve used for all the pictures in this post) performance counter view:</p>
+<pre tabindex="0"><code>WriteGBuffers: 124.1us
+Compose:       312.3us
+Skybox:        46.2us
+Tonemapping:   45.1us
+FXAA:          626.2us
+UI:            23.1us
+
+Total:         1177.0us
+Effective fps: 854.7fps
+</code></pre><h2 id="going-forward">Going forward</h2>
+<p>I&rsquo;m heading off to college for my freshman year soon, so I&rsquo;m planning to take a break from this project as I get adjusted/figure out classes &amp; what not. If/when I get back to this project, my first order of business would probably be refactoring how resource management is done: WebGPU, though a pretty high-level graphics API, is still not <em>as</em> high-level as I&rsquo;d like it to be: there is a lot of repetitive boilerplate creating <code>TextureView</code>s, <code>BindGroup</code>s, <code>BindGroupLayout</code>s, and other resources. I&rsquo;d like to create a thin abstraction over this stuff and make it a lot easier to define new passes, shaders, and resources. Second order of business would be debugging FXAA, and after that starting to tackle global illumination: shadows, ambient occlusion, reflections, etc.</p>
+<p><a href="https://github.com/tech0tron/oceanman">Oceanman is available on my GitHub</a> if you&rsquo;d like to browse through the code. If you have any feedback, suggestions, questions, don&rsquo;t feel free to reach out!</p>
+
+</content>
+<p>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+    
+</body>
+
+</html>

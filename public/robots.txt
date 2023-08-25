@@ -1,0 +1,2 @@
+User-Agent: *
+Sitemap: http://tech0tron.net/sitemap.xml
