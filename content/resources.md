@@ -21,6 +21,7 @@ Useful/cool/englightening/interesting links I've found.
 
 # Computer Graphics
 - [Real-Time Rendering](https://www.realtimerendering.com/) - The guidebook. Excellent for getting a lay of the land and figuring out what specific papers/technologies/techinques to look into. The book's bibliography alone is invaluable.
+- [Fundamentals of Computer Graphics, 5th Edition](https://www.amazon.com/Fundamentals-Computer-Graphics-Steve-Marschner/dp/0367505037)
 - [Graphics Programming Discord](https://graphics-programming.org/)
 - [SIGGRAPH Advances in Real-Time Rendering](https://advances.realtimerendering.com/)
 - [Learn OpenGL](https://learnopengl.com/) - Great tutorial series. Great companion to have with Real-Time Rendering for actually implementing features/techniques.
@@ -36,4 +37,10 @@ Useful/cool/englightening/interesting links I've found.
 - [Physically Based Rendering: From Theory to Implementation](https://www.pbr-book.org/)
 - [Graphics Programming Weekly](https://www.jendrikillner.com/)
 - [Carnegie Mellon's Computer Graphics course](http://15462.courses.cs.cmu.edu/spring2023/) - Great lecture slides.
-    
+- [An Opinionated Post on Modern Rendering Abstraction Layers](https://alextardif.com/RenderingAbstractionLayers.html)
+- [Comparison of Modern Graphics APIs](https://alain.xyz/blog/comparison-of-modern-graphics-apis)
+- [Alain Galvan's blog](https://alain.xyz/)
+
+# Rust
+- [Memory container cheat sheet](https://github.com/usagi/rust-memory-container-cs)
+- [Programming Rust, 2nd Edition](https://www.oreilly.com/library/view/programming-rust-2nd/9781492052586/) - Personally prefer this over the more popular book *The Rust Programming Language* (one on rust-lang.org)
