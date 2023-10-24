@@ -18,6 +18,8 @@ Useful/cool/englightening/interesting links I've found.
 - [Scientist and Engineer's Guide to Digital Signal Processing](http://www.dspguide.com/) - Here for the same reason the Deep Learning From Scratch link is.
 - [Spring visualization](https://www.desmos.com/calculator/rzvw27ljh9) - Very helpful for UI animation.
 - [Susan Rigetti](https://www.susanrigetti.com/) - "So you want to learn..." series is cool (physics, math, philosophy).
+- [Niki Tonsky's blog](https://tonsky.me/)
+- [A React Bro's Guide to Frameworks in 2023](https://twitter.com/t3dotgg/status/1612980211393638401) - it's me, im the react bro
 
 # Computer Graphics
 - [Real-Time Rendering](https://www.realtimerendering.com/) - The guidebook. Excellent for getting a lay of the land and figuring out what specific papers/technologies/techinques to look into. The book's bibliography alone is invaluable.
@@ -44,3 +46,10 @@ Useful/cool/englightening/interesting links I've found.
 # Rust
 - [Memory container cheat sheet](https://github.com/usagi/rust-memory-container-cs)
 - [Programming Rust, 2nd Edition](https://www.oreilly.com/library/view/programming-rust-2nd/9781492052586/) - Personally prefer this over the more popular book *The Rust Programming Language* (one on rust-lang.org)
+
+# Poker
+- [Jonathan Little's Preflop Charts](https://poker-coaching.s3.amazonaws.com/tools/preflop-charts/full-preflop-charts.pdf)
+
+# Math
+- [Sequence Limits](https://math.mit.edu/~apm/ch03.pdf)
+- [Solving Recurrences](https://jeffe.cs.illinois.edu/teaching/algorithms/notes/99-recurrences.pdf)
