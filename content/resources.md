@@ -20,6 +20,8 @@ Useful/cool/englightening/interesting links I've found.
 - [Susan Rigetti](https://www.susanrigetti.com/) - "So you want to learn..." series is cool (physics, math, philosophy).
 - [Niki Tonsky's blog](https://tonsky.me/)
 - [A React Bro's Guide to Frameworks in 2023](https://twitter.com/t3dotgg/status/1612980211393638401) - it's me, im the react bro
+- [Alex Kladov's blog (matklad)](https://matklad.github.io/about.html)
+- [How to Design Programs](https://htdp.org/)
 
 # Computer Graphics
 - [Real-Time Rendering](https://www.realtimerendering.com/) - The guidebook. Excellent for getting a lay of the land and figuring out what specific papers/technologies/techinques to look into. The book's bibliography alone is invaluable.
@@ -49,7 +51,10 @@ Useful/cool/englightening/interesting links I've found.
 
 # Poker
 - [Jonathan Little's Preflop Charts](https://poker-coaching.s3.amazonaws.com/tools/preflop-charts/full-preflop-charts.pdf)
+- [Cactus Kev's Poker Page](http://suffe.cool/poker/) - Several useful poker hand tables as well as a great blog post on evaluating 5-card poker hands.
+- [PokerHandEvaluator](https://github.com/HenryRLee/PokerHandEvaluator/blob/master/Documentation/Algorithm.md) - How to analyze 7-card poker hands.
 
 # Math
 - [Sequence Limits](https://math.mit.edu/~apm/ch03.pdf)
 - [Solving Recurrences](https://jeffe.cs.illinois.edu/teaching/algorithms/notes/99-recurrences.pdf)
+- [Bit Twiddling Hacks](http://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetParallel)
