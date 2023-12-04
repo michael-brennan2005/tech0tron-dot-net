@@ -22,6 +22,9 @@ Useful/cool/englightening/interesting links I've found.
 - [A React Bro's Guide to Frameworks in 2023](https://twitter.com/t3dotgg/status/1612980211393638401) - it's me, im the react bro
 - [Alex Kladov's blog (matklad)](https://matklad.github.io/about.html)
 - [How to Design Programs](https://htdp.org/)
+- [The Role of Algorithms](https://matklad.github.io/2023/08/13/role-of-algorithms.html)
+- [Designing a SIMD Algorithm from Scratch](https://mcyoung.xyz/2023/11/27/simd-base64/)
+- [Internal Pointers](https://www.internalpointers.com/)
 
 # Computer Graphics
 - [Real-Time Rendering](https://www.realtimerendering.com/) - The guidebook. Excellent for getting a lay of the land and figuring out what specific papers/technologies/techinques to look into. The book's bibliography alone is invaluable.
@@ -58,3 +61,8 @@ Useful/cool/englightening/interesting links I've found.
 - [Sequence Limits](https://math.mit.edu/~apm/ch03.pdf)
 - [Solving Recurrences](https://jeffe.cs.illinois.edu/teaching/algorithms/notes/99-recurrences.pdf)
 - [Bit Twiddling Hacks](http://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetParallel)
+- [Evan Chen's website](https://web.evanchen.cc/) - tons of Math Olympiad resources and *An Infinitely Large Napkin*, which covers **a metric ton** of higher math topics/concepts. Super fun to browse through!
+
+# Weightlifting
+- [Mythical Strength](http://mythicalstrength.blogspot.com/2014/05/why-abbreviated-training-starting.html)
+- [Starting Strength](https://startingstrength.com/)
