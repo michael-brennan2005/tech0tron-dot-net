@@ -14,8 +14,7 @@ Useful/cool/englightening/interesting links I've found.
 - [Joel Spolsky's blog](https://www.joelonsoftware.com/)
 - [Paul Graham's blog](http://www.paulgraham.com/index.html)
 - [The Crossover Project](https://www.hillelwayne.com/post/are-we-really-engineers/) - Series about whether software engineers are "really" engineers.
-- [Deep Learning from Scratch](https://www.amazon.com/Deep-Learning-Scratch-Building-Principles/dp/1492041416) - Honestly this is here not as a resource but as a reminder for me to get around to reading this.
-- [Scientist and Engineer's Guide to Digital Signal Processing](http://www.dspguide.com/) - Here for the same reason the Deep Learning From Scratch link is.
+- [Scientist and Engineer's Guide to Digital Signal Processing](http://www.dspguide.com/)
 - [Spring visualization](https://www.desmos.com/calculator/rzvw27ljh9) - Very helpful for UI animation.
 - [Susan Rigetti](https://www.susanrigetti.com/) - "So you want to learn..." series is cool (physics, math, philosophy).
 - [Niki Tonsky's blog](https://tonsky.me/)
@@ -25,6 +24,9 @@ Useful/cool/englightening/interesting links I've found.
 - [The Role of Algorithms](https://matklad.github.io/2023/08/13/role-of-algorithms.html)
 - [Designing a SIMD Algorithm from Scratch](https://mcyoung.xyz/2023/11/27/simd-base64/)
 - [Internal Pointers](https://www.internalpointers.com/)
+- [Book list for streetfighting computer scientists](https://nick-black.com/dankwiki/index.php/Book_list_for_streetfighting_computer_scientists)
+- [Teach Yourself Computer Science](https://teachyourselfcs.com/)
+- [Neetcode](https://neetcode.io/) - A guided version of Leetcode, with video explainers and solutions for all curated questions.
 
 # Computer Graphics
 - [Real-Time Rendering](https://www.realtimerendering.com/) - The guidebook. Excellent for getting a lay of the land and figuring out what specific papers/technologies/techinques to look into. The book's bibliography alone is invaluable.
@@ -48,6 +50,11 @@ Useful/cool/englightening/interesting links I've found.
 - [Comparison of Modern Graphics APIs](https://alain.xyz/blog/comparison-of-modern-graphics-apis)
 - [Alain Galvan's blog](https://alain.xyz/)
 
+# Deep Learning
+- [fastai's Practical Deep Learning for Coders](https://course.fast.ai/) - Great intro to deep learning!
+- [A Recipe for Training Neural Networks](https://karpathy.github.io/2019/04/25/recipe/) 
+- [Computational Linear Algebra for Coders](https://github.com/fastai/numerical-linear-algebra)
+
 # Rust
 - [Memory container cheat sheet](https://github.com/usagi/rust-memory-container-cs)
 - [Programming Rust, 2nd Edition](https://www.oreilly.com/library/view/programming-rust-2nd/9781492052586/) - Personally prefer this over the more popular book *The Rust Programming Language* (one on rust-lang.org)
@@ -66,3 +73,6 @@ Useful/cool/englightening/interesting links I've found.
 # Weightlifting
 - [Mythical Strength](http://mythicalstrength.blogspot.com/2014/05/why-abbreviated-training-starting.html)
 - [Starting Strength](https://startingstrength.com/)
+
+# Miscellaneous
+- [Real World Divorce](http://realworlddivorce.com/)
