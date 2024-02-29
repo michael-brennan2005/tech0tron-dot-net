@@ -49,6 +49,8 @@ Useful/cool/englightening/interesting links I've found.
 - [An Opinionated Post on Modern Rendering Abstraction Layers](https://alextardif.com/RenderingAbstractionLayers.html)
 - [Comparison of Modern Graphics APIs](https://alain.xyz/blog/comparison-of-modern-graphics-apis)
 - [Alain Galvan's blog](https://alain.xyz/)
+- [NVIDIA's Vulkan page](https://developer.nvidia.com/vulkan) - Lots of good articles + other links to Vulkan resources.
+- [Vulkan Synchronization Primer](https://www.jeremyong.com/vulkan/graphics/rendering/2018/11/22/vulkan-synchronization-primer/)
 
 # Deep Learning
 - [fastai's Practical Deep Learning for Coders](https://course.fast.ai/) - Great intro to deep learning!

@@ -2,10 +2,8 @@
 
 Welcome to my little slice of the internet, I'm Michael Brennan! (he/him)
 
-I'm a freshman at Northeastern University, working on a computer science degree.
+I'm a freshman at Northeastern University studying computer science. My interests are in backend development, graphics and GPU programming, and embedded systems.
 
-My most recent project was oceanman, a toy PBR renderer made with wgpu and Rust.
+Currently, [I'm a Software Engineer at Generate, working on Student Activity Calendar](https://github.com/GenerateNU/sac). My most recent project was oceanman, a toy PBR renderer made with wgpu and Rust; [you can read about it here](/oceanman-v0.4/).
 
 I'm always looking to talk to new people or hear about a new opportunity, so feel free to reach out on [Github](https://github.com/michael-brennan2005) or through my [email](mailto:contact@tech0tron.net).
-
-[You can find my resume here](/resume.pdf).
