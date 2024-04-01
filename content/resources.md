@@ -27,6 +27,17 @@ Useful/cool/englightening/interesting links I've found.
 - [Book list for streetfighting computer scientists](https://nick-black.com/dankwiki/index.php/Book_list_for_streetfighting_computer_scientists)
 - [Teach Yourself Computer Science](https://teachyourselfcs.com/)
 - [Neetcode](https://neetcode.io/) - A guided version of Leetcode, with video explainers and solutions for all curated questions.
+- [Thinking and Explaining](https://mathoverflow.net/questions/38639/thinking-and-explaining)
+- [Type Inference Was a Mistake](https://borretti.me/article/type-inference-was-a-mistake)
+- [Computer Systems: A Programmer's Perspective](https://csapp.cs.cmu.edu/)
+- [Visakan Veerassamy's website](https://visakanv.com/)
+- [fasterthanlime](https://fasterthanli.me/) - Lots of Rust
+
+# Electronics/Systems Programming/Low Level Stuff
+- [The Art of Electronics](https://artofelectronics.net/) - **THE** introduction to circuit design, super fun read.
+- [Chips and Cheese](https://chipsandcheese.com/) - CPU design/internals blog, found them from their *x86 Doesn't Need To Die* article.
+- [Computer, Enhance!](https://www.computerenhance.com/) - Casey Muratori's performance aware programming series is here.
+- [Miguel Young de la Sota's blog](https://mcyoung.xyz/) - I really like his intro to LLVM IR post, also check out his syllabus page!
 
 # Computer Graphics
 - [Real-Time Rendering](https://www.realtimerendering.com/) - The guidebook. Excellent for getting a lay of the land and figuring out what specific papers/technologies/techinques to look into. The book's bibliography alone is invaluable.
@@ -76,5 +87,10 @@ Useful/cool/englightening/interesting links I've found.
 - [Mythical Strength](http://mythicalstrength.blogspot.com/2014/05/why-abbreviated-training-starting.html)
 - [Starting Strength](https://startingstrength.com/)
 
+# Cool Companies
+- [Atomic Semiconductor](https://atomicsemi.com)
+- [Reflect Orbital](https://www.reflectorbital.com/)
+
 # Miscellaneous
 - [Real World Divorce](http://realworlddivorce.com/)
+- [Grand Divisions of the United States of America](https://twitter.com/SaintRPh/status/1770651665869259010)
