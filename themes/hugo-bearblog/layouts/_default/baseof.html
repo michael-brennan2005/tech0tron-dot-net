@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}" class="before:content-[''] before:h-3 before:bg-gradient-to-r before:from-fuchsia-700 before:to-fuchsia-950 before:block">
 
 <head>
   <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  {{- partial "favicon.html" . -}}
+  
+  {{ with .Site.Params.favicon }}
+  <link rel="shortcut icon" href="{{ . | absURL }}" />{{ end }}
+
   <title>{{- block "title" . }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{- end }}</title>
 
   {{- partial "seo_tags.html" . -}}
@@ -18,31 +21,60 @@
   {{ $styles := resources.Get "style.css" }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
 
-  {{- partial "style.html" . -}}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MDQSFP817"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  <!-- A partial to be overwritten by the user.
-  Simply place a custom_head.html into
-  your local /layouts/partials-directory -->
-  {{- partial "custom_head.html" . -}}
+    gtag('config', 'G-1MDQSFP817');
+  </script>
+
 </head>
 
-<body>
-  <div style="display: flex; flex-direction: row;">
-    <div class="w-[30%]">
-      {{- partial "header.html" . -}}  
+<body class="m-auto bg-zinc-900 p-8 max-w-screen-lg">
+  <div class="flex flex-col-reverse lg:flex-row">
+    <div class="w-full lg:w-[30%] text-white">
+      <a href="{{ "" | relURL }}">
+        <h1 class="text-white font-extrabold text-3xl">{{ .Site.Title }}</h2>
+      </a>
+      <nav>
+        <div class="flex flex-col font-bold">
+          <div class="">
+            <h2>External:</h2>
+            <div class="ml-4 text-lime-400 flex flex-col">
+              <a href="https://github.com/michael-brennan2005">GitHub</a>
+              <a href="https://www.linkedin.com/in/michael-brennan-67a13b2b1/">LinkedIn</a>
+              <a href="/resume.pdf">Resume</a>
+            </div>  
+          </div>
+          <div class="">
+            {{ with .Site.GetPage "/collections" }}
+              <h2><a href="{{ "collections" | relURL }}">Collections:</a></h2>
+            {{ end }}
+            <div class="ml-4 text-red-500">
+              {{ range where $.Site.RegularPages "Section" "collections" }}
+                <a href="{{ .RelPermalink }}">{{.Title}}</a>
+              {{ end }}
+            </div>
+          </div>          
+          <div class="">
+            {{ with .Site.GetPage "/blog" }}
+              <h2><a href="{{ "blog" | relURL }}">Blog:</a></h2>
+            {{ end }}
+            <div class="ml-4 text-yellow-500">
+              {{ range where $.Site.RegularPages "Section" "blog" }}
+                <a href="{{ .RelPermalink }}">{{.Title}}</a>
+              {{ end }}
+            </div>
+          </div>          
+        </div>
+      </nav>      
     </div>
-    <div class="w-[70%]">
+    <div class="flex-grow prose prose-invert prose-a:text-red">
       {{- block "main" . }}{{- end }}
     </div>
   </div>
-  <footer>
-    {{- partial "footer.html" . -}}
-  </footer>
-
-  <!-- A partial to be overwritten by the user.
-  Simply place a custom_body.html into
-  your local /layouts/partials-directory -->
-  {{- partial "custom_body.html" . -}}
 </body>
 
 </html>

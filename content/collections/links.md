@@ -1,8 +1,8 @@
----
-title: "Resources"
-menu: "main"
-date: 2023-08-21T23:27:07-06:00
----
++++
+title = "Links"
+date = "2023-05-16"
++++
+
 Useful/cool/englightening/interesting links I've found.
 
 # General/Career
