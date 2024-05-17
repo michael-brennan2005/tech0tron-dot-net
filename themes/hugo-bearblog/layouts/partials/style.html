@@ -1,15 +1,28 @@
 <style>
+  html::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(
+        90deg,
+        #d3869b 20%,
+        #b16286 50%,
+        #8f3f71 85%
+    );
+  }
+
   body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: auto;
     padding: 20px;
-    max-width: 720px;
+    max-width: 1000px;
     text-align: left;
-    background-color: #fff;
+    background-color: #1b1b1b;
     word-wrap: break-word;
     overflow-wrap: break-word;
     line-height: 1.5;
-    color: rgb(33,37,41);
+    color: #fff;
   }
 
   h1,
@@ -20,20 +33,15 @@
   h6,
   strong,
   b {
-    color: rgb(33,37,41);
+    color: #fff;
   }
 
   a {
-    color: #0d6efd;
-    font-weight: bold;
-  }
-
-  a:hover {
-    color: #0a58ca;
+    color: #458588;
   }
 
   a:focus {
-    color: #084298;
+    color: #59a8ac;
   }
 
   .title {
@@ -130,57 +138,8 @@
     flex: 0 0 130px;
   }
 
-  ul.blog-posts li a:visited {
-    color: #8b6fcb;
-  }
-
   .nav-bar {
     display: flex;
     justify-content: space-between;
   }
-
- /* @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #282828;
-      color: #ebdbb2;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: #fbf1c7;
-    }
-
-    a {
-      color: #83a598;
-    }
-
-    code {
-      background-color: #1d2021;
-    }
-
-    pre code {
-      color: #ebdbb2;
-    }
-
-    blockquote {
-      color: #ebdbb2;
-    }
-
-    textarea,
-    input {
-      background-color: #1d2021;
-      color: #ebdbb2;
-    }
-
-    .helptext {
-      color: #d5c4a1;
-    }
-  }*/
-
 </style>

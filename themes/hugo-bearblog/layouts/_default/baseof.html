@@ -24,12 +24,14 @@
 </head>
 
 <body>
-  <header>
-    {{- partial "header.html" . -}}
-  </header>
-  <main>
-    {{- block "main" . }}{{- end }}
-  </main>
+  <div style="display: flex; flex-direction: row;">
+    <div style="width: 30%;">
+      {{- partial "header.html" . -}}  
+    </div>
+    <div style="width: 70%;">
+      {{- block "main" . }}{{- end }}
+    </div>
+  </div>
   <footer>
     {{- partial "footer.html" . -}}
   </footer>
