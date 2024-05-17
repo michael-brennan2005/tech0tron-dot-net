@@ -15,6 +15,9 @@
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
 
+  {{ $styles := resources.Get "style.css" }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+
   {{- partial "style.html" . -}}
 
   <!-- A partial to be overwritten by the user.
@@ -25,10 +28,10 @@
 
 <body>
   <div style="display: flex; flex-direction: row;">
-    <div style="width: 30%;">
+    <div class="w-[30%]">
       {{- partial "header.html" . -}}  
     </div>
-    <div style="width: 70%;">
+    <div class="w-[70%]">
       {{- block "main" . }}{{- end }}
     </div>
   </div>
