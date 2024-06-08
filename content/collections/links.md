@@ -5,39 +5,46 @@ date = "2023-05-16"
 
 Useful/cool/englightening/interesting links I've found.
 
-# General/Career
+# General/Articles
 - [Z-Library](https://en.wikipedia.org/wiki/Z-Library) - Their link changes frequently so I go to the wikipedia page and use the URL that's on there. Absolutely essential tool when it comes to learning programming
 - [Essays on programming that I think about a lot](https://www.benkuhn.net/progessays/)
 - [Don't Call Yourself a Programmer, and Other Career Advice](https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/)
 - [How to feel good](https://evanjconrad.com/posts/how-to-feel-good) - Basically an intro to cognitive behavioral therapy & meditation.
-- [Xe laso's blog](https://xeiaso.net/)
-- [Joel Spolsky's blog](https://www.joelonsoftware.com/)
-- [Paul Graham's blog](http://www.paulgraham.com/index.html)
 - [The Crossover Project](https://www.hillelwayne.com/post/are-we-really-engineers/) - Series about whether software engineers are "really" engineers.
 - [Scientist and Engineer's Guide to Digital Signal Processing](http://www.dspguide.com/)
 - [Spring visualization](https://www.desmos.com/calculator/rzvw27ljh9) - Very helpful for UI animation.
-- [Susan Rigetti](https://www.susanrigetti.com/) - "So you want to learn..." series is cool (physics, math, philosophy).
-- [Niki Tonsky's blog](https://tonsky.me/)
 - [A React Bro's Guide to Frameworks in 2023](https://twitter.com/t3dotgg/status/1612980211393638401) - it's me, im the react bro
-- [Alex Kladov's blog (matklad)](https://matklad.github.io/about.html)
 - [How to Design Programs](https://htdp.org/)
 - [The Role of Algorithms](https://matklad.github.io/2023/08/13/role-of-algorithms.html)
 - [Designing a SIMD Algorithm from Scratch](https://mcyoung.xyz/2023/11/27/simd-base64/)
-- [Internal Pointers](https://www.internalpointers.com/)
-- [Book list for streetfighting computer scientists](https://nick-black.com/dankwiki/index.php/Book_list_for_streetfighting_computer_scientists)
-- [Teach Yourself Computer Science](https://teachyourselfcs.com/)
 - [Neetcode](https://neetcode.io/) - A guided version of Leetcode, with video explainers and solutions for all curated questions.
 - [Thinking and Explaining](https://mathoverflow.net/questions/38639/thinking-and-explaining)
 - [Type Inference Was a Mistake](https://borretti.me/article/type-inference-was-a-mistake)
 - [Computer Systems: A Programmer's Perspective](https://csapp.cs.cmu.edu/)
+- [Book list for streetfighting computer scientists](https://nick-black.com/dankwiki/index.php/Book_list_for_streetfighting_computer_scientists)
+- [Teach Yourself Computer Science](https://teachyourselfcs.com/)
+- [Generate](https://generatenu.com/) - Northeastern's Product Development Studio
+- [Computer Networks: A System Approach](https://book.systemsapproach.org/direct.html)
+
+# Blogs
+- [Xe Iaso's blog](https://xeiaso.net/)
+- [Joel Spolsky's blog](https://www.joelonsoftware.com/)
+- [Paul Graham's blog](http://www.paulgraham.com/index.html)
+- [Susan Rigetti](https://www.susanrigetti.com/) - "So you want to learn..." series is cool (physics, math, philosophy).
+- [Niki Tonsky's blog](https://tonsky.me/)
+- [Alex Kladov's blog (matklad)](https://matklad.github.io/about.html)
 - [Visakan Veerassamy's website](https://visakanv.com/)
 - [fasterthanlime](https://fasterthanli.me/) - Lots of Rust
+- [Gwer Branwen's site](https://gwern.net/index) - Excellent syling
+- [Internal Pointers](https://www.internalpointers.com/)
+- [Miguel Young de la Sota's blog](https://mcyoung.xyz/) - I really like his intro to LLVM IR post, also check out his syllabus page!
 
 # Electronics/Systems Programming/Low Level Stuff
 - [The Art of Electronics](https://artofelectronics.net/) - **THE** introduction to circuit design, super fun read.
+
 - [Chips and Cheese](https://chipsandcheese.com/) - CPU design/internals blog, found them from their *x86 Doesn't Need To Die* article.
 - [Computer, Enhance!](https://www.computerenhance.com/) - Casey Muratori's performance aware programming series is here.
-- [Miguel Young de la Sota's blog](https://mcyoung.xyz/) - I really like his intro to LLVM IR post, also check out his syllabus page!
+- [HDLBits](https://hdlbits.01xz.net/wiki/Main_Page) - Great source for learning Verilog.
 
 # Computer Graphics
 - [Real-Time Rendering](https://www.realtimerendering.com/) - The guidebook. Excellent for getting a lay of the land and figuring out what specific papers/technologies/techinques to look into. The book's bibliography alone is invaluable.
@@ -94,3 +101,5 @@ Useful/cool/englightening/interesting links I've found.
 # Miscellaneous
 - [Real World Divorce](http://realworlddivorce.com/)
 - [Grand Divisions of the United States of America](https://twitter.com/SaintRPh/status/1770651665869259010)
+- [Two Weeks With Terraform](https://charity.wtf/2016/02/23/two-weeks-with-terraform/)
+- [Viski Chrome-Rimmed Crystal Tumblers](https://viski.com/products/3468?variant=36128221790369&tw_source=google&tw_adid=&tw_campaign=20708554267&gad_source=1&gclid=CjwKCAjwvIWzBhAlEiwAHHWgvWNzuIsYpr29Q7Oxs99dm2wz1nZ2_pa2MuI1AHN8SEqm-B0ugKK0fRoCRwAQAvD_BwE) - The glasses Don Draper uses in _Mad Men_.
