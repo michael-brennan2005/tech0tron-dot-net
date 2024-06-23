@@ -33,45 +33,32 @@
 </head>
 
 <body class="m-auto bg-zinc-900 p-8 max-w-screen-lg">
-  <div class="flex flex-col-reverse lg:flex-row">
-    <div class="w-full lg:w-[30%] text-white">
+  <div class="flex flex-col">
+    <div class="w-full pl-4 p-2 text-white border-fuchsia-700 border-2">
       <a href="{{ "" | relURL }}">
-        <h1 class="text-white font-extrabold text-3xl">{{ .Site.Title }}</h2>
+        <h1 class="text-white max-w-72 text-center bg-zinc-900 font-extrabold -mt-7 text-3xl">{{ .Site.Title }}</h2>
       </a>
       <nav>
-        <div class="flex flex-col font-bold">
-          <div class="">
-            <h2>External:</h2>
-            <div class="ml-4 text-lime-400 flex flex-col">
-              <a href="https://github.com/michael-brennan2005">GitHub</a>
-              <a href="https://www.linkedin.com/in/michael-brennan-67a13b2b1/">LinkedIn</a>
-              <a href="/resume.pdf">Resume</a>
-            </div>  
-          </div>
-          <div class="">
-            {{ with .Site.GetPage "/collections" }}
-              <h2><a href="{{ "collections" | relURL }}">Collections:</a></h2>
-            {{ end }}
-            <div class="ml-4 text-red-500">
-              {{ range where $.Site.RegularPages "Section" "collections" }}
-                <a href="{{ .RelPermalink }}">{{.Title}}</a>
-              {{ end }}
-            </div>
-          </div>          
-          <div class="">
-            {{ with .Site.GetPage "/blog" }}
-              <h2><a href="{{ "blog" | relURL }}">Blog:</a></h2>
-            {{ end }}
-            <div class="ml-4 text-yellow-500">
-              {{ range where $.Site.RegularPages "Section" "blog" }}
-                <a href="{{ .RelPermalink }}">{{.Title}}</a>
-              {{ end }}
-            </div>
-          </div>          
-        </div>
+        <div class="flex flex-row font-bold justify-evenly text-yellow-500">
+          
+          
+          {{ with .Site.GetPage "/blog" }}
+            <h2><a href="{{ "blog" | relURL }}">Blog</a></h2>  
+          {{ end }}
+          
+          {{ range where $.Site.RegularPages "Section" "collections" }}
+              <a href="{{ .RelPermalink }}" class="text-yellow-500">{{.Title}}</a>
+          {{ end }}
+
+          <a href="https://github.com/michael-brennan2005" >GitHub</a>
+          
+          <a href="https://www.linkedin.com/in/michael-brennan-67a13b2b1/">LinkedIn</a>
+          
+          <a href="/resume.pdf">Resume</a>
       </nav>      
     </div>
-    <div class="flex-grow prose prose-invert prose-a:text-red">
+
+    <div class="mt-6 flex-grow prose prose-invert prose-a:text-red">
       {{- block "main" . }}{{- end }}
     </div>
   </div>
