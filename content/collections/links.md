@@ -25,6 +25,7 @@ Useful/cool/englightening/interesting links I've found.
 - [Teach Yourself Computer Science](https://teachyourselfcs.com/)
 - [Generate](https://generatenu.com/) - Northeastern's Product Development Studio
 - [Computer Networks: A System Approach](https://book.systemsapproach.org/direct.html)
+- [How to Read a (Research) Paper](http://graphics.cs.cmu.edu/courses/15-869-F15/How%20to%20read%20a%20paper.pdf)
 
 # Blogs
 - [Xe Iaso's blog](https://xeiaso.net/)
@@ -74,6 +75,9 @@ Useful/cool/englightening/interesting links I've found.
 - [fastai's Practical Deep Learning for Coders](https://course.fast.ai/) - Great intro to deep learning!
 - [A Recipe for Training Neural Networks](https://karpathy.github.io/2019/04/25/recipe/) 
 - [Computational Linear Algebra for Coders](https://github.com/fastai/numerical-linear-algebra)
+- [Reverse-mode automatic differentiation from scratch, in Python](https://sidsite.com/posts/autodiff/)
+- [CS231n Convolutional Neural Networks for Visual Recognition](https://cs231n.github.io/)
+    - [CS231n Backpropogation notes](https://cs231n.github.io/optimization-2/)
 
 # Rust
 - [Memory container cheat sheet](https://github.com/usagi/rust-memory-container-cs)
@@ -103,3 +107,5 @@ Useful/cool/englightening/interesting links I've found.
 - [Grand Divisions of the United States of America](https://twitter.com/SaintRPh/status/1770651665869259010)
 - [Two Weeks With Terraform](https://charity.wtf/2016/02/23/two-weeks-with-terraform/)
 - [Viski Chrome-Rimmed Crystal Tumblers](https://viski.com/products/3468?variant=36128221790369&tw_source=google&tw_adid=&tw_campaign=20708554267&gad_source=1&gclid=CjwKCAjwvIWzBhAlEiwAHHWgvWNzuIsYpr29Q7Oxs99dm2wz1nZ2_pa2MuI1AHN8SEqm-B0ugKK0fRoCRwAQAvD_BwE) - The glasses Don Draper uses in _Mad Men_.
+- [3rdspace](https://3rdspace.app/)
+- [simplest tool to measure C program cache hit/miss and cpu time in linux?](https://stackoverflow.com/questions/10082517/simplest-tool-to-measure-c-program-cache-hit-miss-and-cpu-time-in-linux/10114325#10114325)
