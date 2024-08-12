@@ -1,0 +1,275 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rita v0.1 - Prototype</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="ea1e91fe-cf0b-4314-a1d1-294dce2db2cf"></script>
+</head>
+
+
+<body>
+  <h1><a href="/">Michael Brennan</a></h1>
+  <div>
+    <a href="/links.html">Links</a>
+    <a href="https://github.com/michael-brennan2005">Github</a>
+    <a href="https://www.linkedin.com/in/michael-brennan-67a13b2b1/">LinkedIn</a>
+  </div>
+  <hr>
+  <h1>Rita v0.1 - Prototype</h1>
+
+  <h2>Video demo</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/VqbNpBe7RlE?si=6NRTsWg83-7qgg9o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <p>Rita is an audio graph editor I've been working on this week, written with Rust on the backend, and React, Typescript, and TailwindCSS on the frontend. 
+    The idea for Rita is that you'll be able to create graphs to process audio signals and create sounds. What differentiates Rita from other DSP or
+    sound synthesis tools is that Rita aims to be a <i>visual</i> graph interface, in the same vein as Blender's material graphs or Unreal Engine's visual
+    programming graphs. With a visual interface, anyone - musicians, music producers, people just getting interested in DSP - can create effects without
+    having to become a programmer. As of now, Rita is in a very basic state, but there's enough at this point to talk about the architecture I've setup and
+    the tech stack I'm using.
+  </p>
+
+  <h2>Frontend</h2>
+  <p>I've never been much of a frontend person, and so my original plan was to use something like egui or imgui which would handle most of the UI
+    layout and styling work. But imgui's Rust bindings are a bit subpar, and <a href="https://github.com/setzer22/egui_node_graph">the only graph editor add-on for egui I could find is archived.</a>
+    It became clear quickly I was going to need to use something from the much-larger web ecosystem. Thankfully, Tauri is a framework made for desktop apps using Rust on the backend and HTML+CSS+Typescript
+    on the frontend. Rita is now using <a href="https://reactflow.dev/">ReactFlow</a>, which is like, ridiculously easy to use: the library handles all node and edge state, makes it really simple to add
+    connectors to nodes (using the <code>Handle</code> element), and also serializes itself to JSON which can be easily sent to the Rust backend. The only tricky part of ReactFlow has been having
+    to disable some of its built-in styling for my own.</p>
+    
+    <p>Speaking of stlying, I'm using TaliwindCSS for general styling and <a href="https://ui.shadcn.com/">shadcn/ui</a> for general components. shadcn/ui is something I hadn't ever used before this project, but it's
+    been great for quickly building out the UI. What's sort of unique about shadcn/ui is that it isn't built as a traditional library but more so meant to be copy/pasted into your codebase. This makes it really simple to
+    make changes to its components to your liking: I modified the <code>Card</code> component a bit to support the colored headers for the graph nodes.</p>
+
+  <h2>Graph Processing</h2>
+  <p>Getting the JSON data for the graph is just a matter of calling <code>JSON.stringify(rfInstance.toObject())</code>, where <code>rfInstance</code>
+  is a state value holding the ReactFlowInstance. When the user hits compile, the frontend "invokes" a command, sending this JSON to the backend. From here, processing the graph
+is done in 3 parts: parsing the JSON into more usable data, processing the graph one node at a time, and then sending the final buffer of audio samples to the playback thread.</p>
+
+  <p>JSON parsing is done using serde, which involves defining a bunch of Rust structs that conform to how ReactFlow's JSON is laid out. <a href="https://github.com/michael-brennan2005/rita-graph/blob/main/src-tauri/src/graph_json.rs">These types are found in graph_json.rs.</a>
+  We then use this JSON data to create our <code>AudioGraph</code> struct:</p>
+  <code>
+    <pre>
+pub struct AudioGraph {
+  graph: petgraph::Graph&lt;AudioGraphNode, AudioGraphEdge&gt;
+} 
+
+enum AudioGraphNode {
+    Input {
+        file_path: String
+    },
+    WaveGen {
+        wave_type: WaveType,
+        frequency: f32,
+        amplitude: f32,
+        seconds: f32
+    },
+    BinOp {
+        operation: BinOp,
+        on_short_a: ShortBehavior,
+        on_short_b: ShortBehavior
+    },
+    Output {
+        final_buffer: Vec&lt;f32&gt;
+    }
+}
+
+struct AudioGraphEdge {
+  from_idx: usize,
+  to_idx: usize
+}
+
+#[derive(Clone)]
+enum EdgeData {
+  SoundBuffer {
+      buf: Vec&lt;f32&gt;
+  }
+}
+    </pre>  
+  </code>
+  <p>Above is the definiton for the <code>AudioGraph</code> struct, and I threw in the definitions for <code>AudioGraphNode, AudioGraphEdge,</code> and <code>EdgeData</code>
+  for the full picture. Right now <code>AudioGraph</code> just holds a <code>petgraph::Graph</code> field, which stores all the nodes and edges. <code>AudioGraphNode</code> is (as you can probably guess)
+  the node type of the graph, and stores all the parameters a node may need (minus any inputs that come from other nodes) for processing.</p>
+
+  <p>At this point you may be wondering where graph inputs and outputs are stored, and why <code>AudioGraphEdge</code> is, somewhat unintuitively, storing two <code>usize</code>'s and nothing more.
+  A key design choice I made was that the <code>AudioGraphNode</code>'s should not own their inputs or outputs; the vectors containing inputs and outpts should instead be passed in when it comes time for a node to be processed.
+  This is what <code>AudioGraphNode::process</code>'s signature is:</p>
+  <code>
+    <pre>
+pub fn process(&mut self, 
+    window: &tauri::Window, 
+    my_idx: NodeIndex, 
+    inputs: &mut HashMap&lt;NodeIndex&lt;u32&gt;, Vec&lt;(NodeIndex&lt;u32&gt;, usize, usize)&gt;&gt;, 
+    outputs: &mut HashMap&lt;NodeIndex&lt;u32&gt;, Vec&lt;Option&lt;EdgeData&gt;&gt;&gt;,
+    output_spec: F32FormatSpec
+)
+    </pre>
+  </code>
+  <p>To get the simple stuff out of the way, <code>window</code> is passed in to send status 
+    messages to the frotend through Tauri events; <code>my_idx</code> tells the node what 
+    index it should be using for <code>inputs</code> and <code>outputs</code>, and 
+    <code>output_spec</code> has info telling the node the sample rate and number of channels
+    its final sound buffer should have.</p> <code>inputs</code> has an entry for each node (hence the <code>NodeIndex</code> as a key). The tuples are in the form of <code>(output_node_index, from_idx, to_idx)</code>:
+    the node's (<code>to_idx</code>)th input is the (<code>output_node_index</code>)'s output at the (<code>from_idx</code>)th index. This is what the <code>AudioGraphEdge</code> is storing - in <code>AudioGraph::process</code>, we use this edge info
+    to create the <code>inputs</code> hashmap that eventually gets passed to all these nodes. Similar to <code>inputs</code>, <code>outputs</code> has an entry
+    for each node; and the ith <code>Option&lt;EdgeData&gt;</code> is that node's ith output. Is this probably over-complicated and could be simplified? Yeah; but I'm probably going to be rewriting how inputs and outputs
+    are handled when I switch to a streaming model (see below), and if I do stick with this way of storing them, it has the benefit that we can very easily support multiple inputs, multiple outputs, and (pretty sure) one output being used in more
+    than one input.</p>
+
+    <p>Here's what <code>AudioGraph::process</code> - the 'main' method for graph processing looks like. We topologically sort the graph (so nodes will always have their inputs ready before being processed), create the
+    <code>inputs</code> and <code>outputs</code> maps, and then process the nodes one by one.</p>
+<code>
+  <pre>
+pub fn process(&mut self, window: &tauri::Window, output_spec: F32FormatSpec) -&gt; Result&lt;Vec&lt;f32&gt;, ()&gt; {
+  send_status(window, "Beginning graph processing.");
+
+  // get sorted order
+  let sorted = match petgraph::algo::toposort(&self.graph, None) {
+      Ok(order) =&gt; order, 
+      Err(_) =&gt; {
+          send_status(window, "Error sorting graph - cycle exists");
+          return Err(());
+      },
+  };
+  let _ = window.emit("set_total_nodes", sorted.len());
+  
+  // create inputs map
+  let mut inputs: HashMap&lt;NodeIndex&lt;u32&gt;, Vec&lt;(NodeIndex&lt;u32&gt;, usize, usize)&gt;&gt; = HashMap::new();
+  for idx in &sorted {
+      let mut vec: Vec&lt;(NodeIndex&lt;u32&gt;, usize, usize)&gt; = Vec::new();
+
+      for edge in self.graph.edges_directed(*idx, Incoming) {
+          vec.push((edge.source(), edge.weight().from_idx, edge.weight().to_idx));
+      }
+
+      inputs.insert(*idx, vec);
+  }
+  
+  // create outputs map
+  let mut outputs: HashMap&lt;NodeIndex&lt;u32&gt;, Vec&lt;Option&lt;EdgeData&gt;&gt;&gt; = HashMap::new();
+  for idx in &sorted {
+      let output_num = self.graph[*idx].num_outputs();
+
+      let vec: Vec&lt;Option&lt;EdgeData&gt;&gt; = vec![None; output_num];
+      
+      outputs.insert(*idx, vec);
+  }
+
+  // Processing (the fun step)
+  let _ = window.emit("set_completed_nodes", 0);
+  for (i, idx) in sorted.iter().enumerate() {
+      self.graph[*idx].process(window, *idx, &mut inputs, &mut outputs, output_spec);
+      let _ = window.emit("set_completed_nodes", i + 1);
+  }
+  
+  // Find output and return the final buffer
+  for idx in &sorted {
+      match &mut self.graph[*idx] {
+          AudioGraphNode::Output { final_buffer } =&gt; {
+              return Ok(std::mem::replace(final_buffer, Vec::new()));
+          },
+          _ =&gt; continue
+      }
+  }
+  
+  Err(())
+}
+  </pre>
+</code>
+
+<p><a href="https://github.com/michael-brennan2005/rita-graph/blob/main/src-tauri/src/graph.rs">This code is all available in graph.rs.</a> Right now the audio graph is what I guess you call an "ahead-of-time" processor: its final output is the full sound buffer, start to end. For short sound buffers this is fine, and the graph
+  will 'compile' in less than a second. When a graph starts using <code>wav</code> files however, compilation becomes very slow and the final sound buffer takes up a lot of memory. I've been using
+  a <code>wav</code> file of Marvin Gaye's "What's Going On" during testing (great song! give it a listen) and compilation takes about 10 seconds and
+  over 100 MB of memory; and that's just one song! I'm planning to rewrite the AudioGraph to use a just-in-time/streaming model, where the sound buffer is processed a chunk at a time instead of one whole go.
+</p>
+
+<h2>Playing audio</h2>
+<p>The functionality for audio playback is split into two structs: <a href="https://github.com/michael-brennan2005/rita-graph/blob/main/src-tauri/src/playback/player.rs"><code>Player</code></a> and <a href="https://github.com/michael-brennan2005/rita-graph/blob/main/src-tauri/src/playback/process.rs"><code>Process</code></a> (great names I'm aware). They're both initialized in <code>Player::new</code>:</p>
+<code>
+  <pre>
+pub fn new() -> Player {
+  // ... boilerplate cpal code ...
+  let (app_to_player_send, app_to_player_recv) = RingBuffer::<AppToPlayerMessage>::new(256);
+  let mut process = Process::new(app_to_player_recv, player_to_app_send);
+
+  let stream = device
+      .build_output_stream(
+          &config,
+          move |data: &mut [f32], _: &cpal::OutputCallbackInfo| {
+              process.process(data);
+          },
+          move |err| {
+              panic!("Audio ouput stream failure: {}", err);
+          },
+          None,
+      )
+      .expect("Stream building failed");
+
+  stream.play().expect("Stream playing failed");
+
+  Self {
+      stream,
+      format,
+      app_to_player_send,
+      player_to_app_recv,
+  }
+}
+  </pre>
+</code>
+
+<p>Audio playback is a realtime process: something like reading a file or a function taking longer to finish than usual can cause super noticeable glitches or skips in the audio, which is why
+  most if not all playback libraries (such as <a href="https://github.com/RustAudio/cpal">cpal, the (lovely) library I'm using</a>) run the actual output-buffer filling code in a seperate thread. 
+  Thus, the returned <code>Player</code> struct is kept on the 'app' thread, and can be used to pass messages to the <code>Process</code> struct that exists on its own seperate thread. 
+The message types are below (I omitted the messages that are unused as of now), and are passed between the two structs with a <a href="https://docs.rs/rtrb/latest/rtrb/">ringbuffer</a></p>
+
+<code>
+  <pre>
+pub enum AppToPlayerMessage {
+  Play,
+  Pause,
+  UseBuffer(Vec<f32>)
+}
+  </pre>
+</code>
+
+<p>
+Using the <code>Player</code>, Tauri commands can tell the process to pause or play the current sound buffer, or swap it out for a new buffer (one returned from <code>AudioGraph::process</code>) to start playing from.
+<code>Process:proces</code> (which gets called when the audio stream needs new sound samples) will check for any incoming messages, and then just fill the output buffer with the nessecary samples:
+</p>
+
+<code>
+  <pre>
+if let Some(current_buffer) = &self.current_buffer {
+    if self.current_buffer_idx + data.len() >= current_buffer.len() {
+        let count_at_end = current_buffer.len() - self.current_buffer_idx;
+        let count_at_start = data.len() - count_at_end;
+        unsafe {
+            std::ptr::copy(current_buffer.as_ptr().add(self.current_buffer_idx), data.as_mut_ptr(), count_at_end);
+            std::ptr::copy(current_buffer.as_ptr(), data.as_mut_ptr().add(count_at_end), count_at_start);                    
+        }
+        self.current_buffer_idx = count_at_start;
+    } else {
+        unsafe {
+            std::ptr::copy(current_buffer.as_ptr().add(self.current_buffer_idx), data.as_mut_ptr(), data.len());
+        }
+        self.current_buffer_idx += data.len();
+    }
+}
+  </pre>
+</code>
+
+<p>I did a little benchmark to compare using iteration to fill the <code>data</code> buffer vs. <code>ptr::copy</code>, and I found faster enough to warrant using <code>unsafe</code> for it. The <code>Process</code>
+struct has a <code>current_buffer</code> field which is what it is reading samples from, and a <code>current_buffer_idx</code> to keep track of where it should start reading from.</p> 
+
+<h2>Going forward</h2>
+<p>As I said a bit earlier, the main change I want to immediately make is switching to a just-in-time model to reduce loading times and memory usage. I'm heading back to college in a few weeks and most likely
+won't have much time to work on this; my hope is that with this change and some upgrades to UI, Rita would be in a nice place to gradually add new audio nodes or just come back to it when I have more free time.</p>
+
+<p><a href="https://github.com/michael-brennan2005/rita-graph">The full code for Rita is available on GitHub.</a> If you have any feedback, suggestions, questions, feel free to reach out!</p>
+</body>
+
+</html>
