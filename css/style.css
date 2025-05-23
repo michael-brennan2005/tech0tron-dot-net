@@ -18,11 +18,10 @@ html {
 }
 
 body {
-  max-width: 50rem;
-  margin: auto;
-  padding: 1rem;
+   max-width: 50rem;
+   padding: 1rem;
+   margin: auto;
 }
-
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
