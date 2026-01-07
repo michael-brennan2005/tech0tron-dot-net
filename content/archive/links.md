@@ -4,18 +4,6 @@ title = "Links"
 
 Poor-man's cloud bookmarks
 
-## 2025 books
-* [The Wisdom of Insecurity: A Message for an Age of Anxiety](https://a.co/d/gfPpoO3), Alan Watts 
-* [Stoner](https://a.co/d/8MBb8Sh), John Williams
-* [Normal People](https://a.co/d/5NtjqBR), Sally Rooney
-* [Hell's Angels: A Strange and Terrible Saga](https://a.co/d/5NtjqBR), Hunter S. Thompson
-* [Fear and Loathing on the Campaign Trail '72](https://a.co/d/4ckyZu6), Hunter S. Thompson
-* [Fear and Loathing in Las Vegas](https://a.co/d/fhRdEjP), Hunter S. Thompson
-* [How Asia Works](https://a.co/d/a2lZ2iB), Joe Studwell
-* [Liftoff: Elon Musk and the Desperate Early Days That Launched SpaceX](https://a.co/d/1Fqhdh5)
-* [Abundance](https://a.co/d/bfoPjN0), Ezra Klein, Derek Thompson 
-* [The Power Broker](https://a.co/d/1U6UOKW), Robert A. Caro
-
 ## General/Misc/Unsorted
 *   [Z-Library](https://en.wikipedia.org/wiki/Z-Library) - Their link changes frequently so I go to the wikipedia page and use the URL that’s on there.
 *   [Anna's Archive](https://annas-archive.org/)
@@ -59,7 +47,7 @@ Poor-man's cloud bookmarks
 
 ## Articles/Posts
 *   [Thinking and Explaining](https://mathoverflow.net/questions/38639/thinking-and-explaining)
-*   [How to feel good](https://evanjconrad.com/posts/how-to-feel-good) - Basically an intro to cognitive behavioral therapy & meditation
+*   [How to feel good](https://evanjconrad.com/posts/how-to-feel-good)
 *   [Type Inference Was a Mistake](https://borretti.me/article/type-inference-was-a-mistake)
 *   [Reflections on Palantir](https://nabeelqu.co/reflections-on-palantir)
 *   [On Becoming Competitive When Joining a New Company](https://ludwigabap.bearblog.dev/on-becoming-competitive-when-joining-a-new-company/)
@@ -73,7 +61,6 @@ Poor-man's cloud bookmarks
 *   [What really happens inside a dating app](https://blog.luap.info/what-really-happens-inside-a-dating-app.html)
 *   [The Best Product Engineering Org in the World](https://www.jamesshore.com/v2/blog/2025/the-best-product-engineering-org-in-the-world)
 *   [Founder Mode](https://paulgraham.com/foundermode.html)
-*   [Does anyone have the right to sex?](https://www.lrb.co.uk/the-paper/v40/n06/amia-srinivasan/does-anyone-have-the-right-to-sex)
 *   [What Do Undergrads Need to Know About Trade?](https://www.jstor.org/stable/2117633?seq=1)
 *   [Essays on programming that I think about a lot](https://www.benkuhn.net/progessays/)
 *   [Don’t Call Yourself a Programmer, and Other Career Advice](https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/)
@@ -114,6 +101,7 @@ Poor-man's cloud bookmarks
 *   [What I Wish Someone Told Me About Postgres](https://challahscript.com/what_i_wish_someone_told_me_about_postgres)
 *   [PutThisOn](https://putthison.com/)
 *   [Astral Codex Ten](https://www.astralcodexten.com/)
+*   [Mr. and Mrs. Psmith's Bookshelf](https://www.thepsmiths.com/)
 
 ## Computer Systems
 *   [Chips and Cheese](https://chipsandcheese.com/) - CPU design/internals blog, found them from their _x86 Doesn’t Need To Die_ article.
@@ -215,6 +203,7 @@ Poor-man's cloud bookmarks
 *   [Ethan Hein's blog](https://www.ethanhein.com/wp/) - Music professor at NYU
 
 ## Cool Companies
+*   [RAI Institute](https://rai-inst.com/) - I worked here!
 *   [Atomic Semiconductor](https://atomicsemi.com)
 *   [Reflect Orbital](https://www.reflectorbital.com/)
 *   [AMP Sortation](https://ampsortation.com/)

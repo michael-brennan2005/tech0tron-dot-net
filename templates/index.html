@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Welcome to my website!</p>
+<p>I'm a 3rd year at Northeastern University studying computer engineering. Currently, I'm the Lead Electrical & Embedded Engineer for Matcha Flow, a Generate Hardware project. Recently, I wrapped up a 6-month electrical engineering co-op at the RAI Institute.</p>
+
+<h1>Blog Posts</h1>
+<ul>
+    {% set posts_section = get_section(path="blog/_index.md") %}
+    {% for page in posts_section.pages %}
+    <li><a href="{{ page.permalink | safe }}">{{ page.title }} - {{page.date}}</a></li>
+    {% endfor %}    
+</ul>
+
+<div class="column">
+    <h1>Experience</h1>
+    <div style="display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
+        <div style="width: 55%">
+        <h2 style="margin: 0;">Robotics & AI Institute</h2>
+        <em>Electrical Engineering Intern, July 2025 - Dec 2025</em>
+        <p style="margin-top: 1rem; text-align: justify;">I co-oped for 6 months at Robotics & AI Institute on their electrical engineering team. I worked on a wide range of projects, spanning electrical and firmware domains, to support the cutting-edge robotics hardware used at the institute.</p>
+        <p><strong>Ultra Wideband:</strong> My primary project concerned building out a general-purpose wireless solution  for future projects' sensing needs. With mentorship from my team, I led this project end-to-end, from the initial conceptual stages, to a finished development PCB, firmware suite, and comprehensive documentation.</p>
+        <ul>
+            <li>
+                I did an initial evaluation of several wireless protocols and met with key stakeholders to discern their needs.
+            </li>
+            <li>
+                After presenting my initial results and a further development plan to the hardware engineering team, we settled on Ultra Wideband (UWB) as the technology to move forward with. Using Altium Designer, I designed a devboard for Ultra Wideband, built around an STM32 microcontroller, and Qorvo DW3110 UWB transceiver.
+            </li>
+            <li>
+                Next, I developed an extensive firmware suite using Rust and RTIC for characterizing Ultra Wide-band’s latency, throughput and reliability. I also developed a desktop program in Python to easily automate running large batches of UWB tests.
+            </li>
+            <li>
+                Lastly, I conducted thorough testing of our Ultra Wide-band solution for a wide range of test configurations and environments, meticulously documented my results for future use, and gave a presentation to the engineering team on my designs, process, and findings.
+            </li>
+        </ul>
+        <p><strong>Interposers: </strong>I developed multiple flex PCB interposers to transmit Single-Pair Ethernet and high-voltage power throughout a key robotics platform. This project proved an excellent opportunity for learning more about mechanical co-design and integration, high-voltage and flexible PCB design, and designing boards to work in EMI-heavy environments.</p>
+        <p><strong>Motor drivers: </strong>I designed a 150V, 200A, 3-phase brush-less motor driver for high-performance robotics actuation. Apart of a family of in-house motor drivers, a unique feature to this one was the addition of an EMI filter on its phase output stages. For this filter, I conducted extensive simulation work in LTSpice, and designed a test board to verify my work in the lab, using an oscilloscope, high-voltage power supply, and other tools.</p>
+        <p><strong>Technologies & Skills: </strong>Altium Designer, STM32, Rust, RTIC, Python, LTSpice, Git, Ultra Wideband, Single-Pair Ethernet, Flex PCB Design, EMI Filtering, High-Voltage Design, PCB Design, Robotics Hardware</p>
+        <a href="https://rai-inst.com/">Website</a>
+        </div>
+        <img style="width:40%" src="/img/home/rai.png"/>
+    </div>
+
+    <div style="display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
+        <div style="width: 55%">
+        <h2 style="margin: 0;">Matcha Flow</h2>
+        <em>Lead Electrical & Embedded Engineer, Jan 2026 -</em>
+        <p style="margin-top: 1rem; text-align: justify;">This semester, I'm the lead electrical engineer for Matcha Flow: A household device that makes high quality matcha tea at the press of a button. As a lead, I'm responsible for mentoring 6 hardware engineers through weekly action items, PCB and firmware reviews, and establishing technical requirements and deliverables. I'm also architecting the electrical and firmware systems of the device: we're building an STM32-based PCB using Altium Designer for robust electrical integration, and firmware with Zephyr and C for system operation.</p>
+        <p><strong>Technologies & Skills: </strong>Altium Designer, STM32, Zephyr RTOS, C, PCB Design, Firmware Development, Electrical System Architecture, Technical Leadership</p>
+        </div>
+        <div style="width: 40%; display: flex; flex-direction: column;">
+            <img src="/img/home/generate.png"/>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
+        <div style="width: 55%">
+        <h2 style="margin: 0;">GreenTower</h2>
+        <em>Electrical & Embedded Engineer, Jul 2025 - Dec 2025</em>
+        <p style="margin-top: 1rem; text-align: justify;">GreenTower is an automated hydroponics solution that aims to enable easily growing plants in your own home. I owned the design and development of this project's firmware, building a solution with ESP-IDF and C. I wrote drivers for multiple external sensors, an ADC, and brushed motor drivers, constructed a finite-state machine to automate nutrient mixing and water pumping for the plants, and used LVGL for an intuitive user interface. I also specced and did the PCB design for our microcontroller, using an ESP32 and CP2102N USB-to-UART bridge.</p>
+        <p><strong>Technologies & Skills: </strong>ESP-IDF, C, ESP32, LVGL, CP2102N, PCB Design, Firmware Development, Embedded C, Sensor Drivers, Motor Control, Finite-State Machines, UI Development</p>
+        <a href="https://github.com/GenerateNU/cedar">Repository</a>
+        </div>
+        <div style="width: 40%; display: flex; flex-direction: column;">
+            <img src="/img/home/greentowerpose.png"/>
+            <img src="/img/home/greentowerschematic.jpg"/>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between;">
+        <div style="width: 55%">
+        <h2 style="margin: 0;">Arcade</h2>
+        <em>Electrical & Embedded Engineer, Jan 2025 - Jun 2025</em>
+        <p style="margin-top: 1rem; text-align: justify;">Arcade is a portable, easy-to-assemble arcade cabinet to help game design students professionally showcase their work. My main responsibility was designing the lighting subsystem for this project, to give the machine a fun retro flair. I did extensive brainstorming and testing for multiple LED strips, ultimately settling on WS2812B LEDs. Using Altium Designer, I designed the logic interfacing and 20A+ power distribution for multiple LED strips. Lastly, I wrote firmware that synced the LED colors to the cabinet's computer screen, using Rust and USB serial communication, for an immersive visual effect.</p>
+        <p><strong>Technologies: </strong>Altium Designer, WS2812B LEDs, Rust, USB Communication, PCB Design, Firmware Development, Power Distribution</p>
+        <a href="https://github.com/michael-brennan2005/arcade">Repository</a>
+        </div>
+        <div style="width: 40%; display: flex; flex-direction: column;">
+            <img src="/img/home/arcadepose.PNG"/>
+            <img src="/img/home/arcadepcb.jpg"/>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+        <div style="width: 55%">
+        <h2 style="margin: 0;">3 Stones</h2>
+        <em>Lead Software Engineer, Jul 2024 - Dec 2024</em>
+        <p style="margin-top: 1rem; text-align: justify;">3 Stones is an app for accessible real estate investing, allowing individuals to invest directly in development projects with minimal capital. I was one of the tech leads for this project - I led a team of 6 engineers, ensuring effective communication and coordination with leadership and design teams. In addition, I architected our backend and database schema, and developed our project details and project investment screens.</p>
+        <p><strong>Technologies: </strong>Go, Supabase, PostgreSQL, Plaid, TypeScript, React Native</p>
+        <a href="https://github.com/GenerateNU/3stones">Repository</a>
+        </div>
+        <img style="width:40%" src="/img/home/3stones.png"/>
+    </div>
+
+    <div style="display: flex; flex-direction: row; align-items: center; margin-top: 1rem; justify-content: space-between;">
+        <div style="width: 55%">
+        <h2 style="margin: 0;">Rita</h2>
+        <em>Personal Project, Jul 2024 - Aug 2024</em>
+        <p style="margin-top: 1rem; text-align: justify;">Rita is an audio graph editor built using Rust, Tauri, and CPAL. I implemented nodes for audio I/O, processing, and synthesis; and a sound compiler and playback system for performant and smooth audio playback.</p>
+        <p><strong>Technologies: </strong>Rust, Tauri, CPAL</p>
+        <div style="display: flex; flex-direction: row; gap: 1rem;">
+            <a href="https://github.com/michael-brennan2005/rita-graph">Repository</a>
+            <a href="/blog/rita">Blog Post</a>
+        </div>
+        </div>
+        <img style="width:40%" src="/img/home/rita.png"/>
+    </div>
+
+    <div style="display: flex; flex-direction: row; align-items: center; margin-top: 1rem; justify-content: space-between;">
+        <div style="width: 55%">
+        <h2 style="margin: 0;">Oceanman</h2>
+        <em>Personal Project, Jun 2023 - Aug 2023</em>
+        <p style="margin-top: 1rem; text-align: justify;">Oceanman is a 3D renderer I built from scratch to learn graphics programming. Using WebGPU and Rust, I implemented physically-based rendering, image-based lighting, a glTF scene loader, HDR texture support, and post-processing effects (tonemapping and FXAA).</p>
+        <p><strong>Technologies: </strong>Rust, WebGPU</p>
+        <div style="display: flex; flex-direction: row; gap: 1rem;">
+            <a href="https://github.com/michael-brennan2005/oceanman">Repository</a>
+            <a href="/blog/oceanman">Blog Post</a>
+        </div>
+        </div>
+        <img style="width:40%" src="/img/august2023-oceanman/final-render.png"/>
+    </div>
+</div>
+{% endblock content %}
