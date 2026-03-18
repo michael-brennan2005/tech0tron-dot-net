@@ -44,6 +44,8 @@ Poor-man's cloud bookmarks
 *   [t3.chat](https://t3.chat/) - AI model provider of choice
 *   [Thinking in Systems: International Bestseller](https://www.amazon.com/Thinking-Systems-Donella-H-Meadows/dp/1603580557)
 *   [Emergent Tokyo: Designing the Spontaneous City](https://www.amazon.com/Emergent-Tokyo-Patterns-Spontaneous-Micro-Urbanism/dp/1951541324)
+*   [Andreesen's Folly - The False Dichomoty of Software and Hardware](https://www.youtube.com/watch?v=v0JjG0Qfwi8)
+*   [Negev Bedouin](https://en.wikipedia.org/wiki/Negev_Bedouin#) - Pic for this article is tough
 
 ## Articles/Posts
 *   [Thinking and Explaining](https://mathoverflow.net/questions/38639/thinking-and-explaining)
@@ -68,6 +70,8 @@ Poor-man's cloud bookmarks
 *   [The Role of Algorithms](https://matklad.github.io/2023/08/13/role-of-algorithms.html)
 *   [Designing a SIMD Algorithm from Scratch](https://mcyoung.xyz/2023/11/27/simd-base64)
 *   [How to Read a (Research) Paper](http://graphics.cs.cmu.edu/courses/15-869-F15/How%20to%20read%20a%20paper.pdf)
+*   [Rule Thinkers In, Not Out](https://slatestarcodex.com/2019/02/26/rule-genius-in-not-out/)
+*   [How To Time Travel](https://medium.com/@bchesky/how-to-time-travel-b604096d5ed0)
 
 ## Blogs
 *   [Xe Iaso’s blog](https://xeiaso.net/)
@@ -102,8 +106,9 @@ Poor-man's cloud bookmarks
 *   [PutThisOn](https://putthison.com/)
 *   [Astral Codex Ten](https://www.astralcodexten.com/)
 *   [Mr. and Mrs. Psmith's Bookshelf](https://www.thepsmiths.com/)
+*   [Bryan Cantrill's blog](https://bcantrill.dtrace.org/)
 
-## Computer Systems
+## Low-Level & Systems
 *   [Chips and Cheese](https://chipsandcheese.com/) - CPU design/internals blog, found them from their _x86 Doesn’t Need To Die_ article.
 *   [Computer, Enhance!](https://www.computerenhance.com/) - Casey Muratori’s performance aware programming series is here.
 *   [HDLBits](https://hdlbits.01xz.net/wiki/Main_Page) - Great source for learning Verilog.
@@ -119,6 +124,11 @@ Poor-man's cloud bookmarks
 *   [Rust Memory container cheat sheet](https://github.com/usagi/rust-memory-container-cs)
 *   [Programming Rust, 2nd Edition](https://www.oreilly.com/library/view/programming-rust-2nd/9781492052586/) - Personally prefer this over the more popular book _The Rust Programming Language_ (one on rust-lang.org)
 *   [The Rustonomicon](https://doc.rust-lang.org/nomicon/) - How to Unsafe Rust
+*   [Writing an OS in Rust](https://os.phil-opp.com/)
+*   [AMD64 Architecture Programmer's Manual, Vol. 1-5](https://docs.amd.com/v/u/en-US/40332_4.09_APM_PUB)
+*   [Algorithms for Modern Hardware](https://en.algorithmica.org/hpc/)
+*   [ELF Format Cheatsheet](https://gist.github.com/x0nu11byt3/bcb35c3de461e5fb66173071a2379779)
+*   [Zola](https://www.getzola.org/) - Static site generator this site uses
 
 ## Electronics & Embedded
 *   [The Art of Electronics](https://artofelectronics.net/)
@@ -141,6 +151,10 @@ Poor-man's cloud bookmarks
 *   [You Don't Need an RTOS](https://www.embeddedrelated.com/showarticle/1636.php)
 *   [Electromagnetic Compatibility Engineering](https://a.co/d/4JhJ8NL)
 *   [lcamtuf's thing](https://lcamtuf.substack.com/)
+*   [Design Rules and Strategies for BGA Devices](https://docs.amd.com/r/en-US/ug1099-bga-device-design-rules)
+*   [How to Achieve Proper Grounding](https://www.youtube.com/live/ySuUZEjARPY?si=ayXW3PaedPZ1i5wZ)
+*   [Advanced Digital Hardware Design](https://fedevel.com/courses/advanced-digital-hardware-design)
+*   [Indistinguishable From Magic: Manufacturing Modern Computer Chips](https://www.youtube.com/watch?v=NGFhc8R_uO4&t=5s)
 
 ## Computer Graphics
 *   [Real-Time Rendering](https://www.realtimerendering.com/) - The guidebook. Excellent for getting a lay of the land and figuring out what specific papers/technologies/techinques to look into. The book’s bibliography alone is invaluable.
@@ -191,6 +205,7 @@ Poor-man's cloud bookmarks
 *   [Bit Twiddling Hacks](http://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetParallel)
 *   [Evan Chen’s website](https://web.evanchen.cc/) - tons of Math Olympiad resources and _An Infinitely Large Napkin_
 *   [Why isn't the fundamental theorem of arithmetic obvious?](https://gowers.wordpress.com/2011/11/13/why-isnt-the-fundamental-theorem-of-arithmetic-obvious/)
+*   [Harold's ODE Cheat Sheet](https://www.toomey.org/tutor/harolds_cheat_sheets/Harolds_DiffEq_Cheat_Sheet.pdf)
 
 ## Weightlifting
 *   [Mythical Strength](https://mythicalstrength.blogspot.com/2014/05/why-abbreviated-training-starting.html)
@@ -204,6 +219,9 @@ Poor-man's cloud bookmarks
 
 ## Cool Companies
 *   [RAI Institute](https://rai-inst.com/) - I worked here!
+*   [WHOOP](https://www.whoop.com/) - I will be working here!
+*   [Oxide Computer Company](https://oxide.computer/)
+*   [Standard Subsea](https://www.standardsubsea.com/)
 *   [Atomic Semiconductor](https://atomicsemi.com)
 *   [Reflect Orbital](https://www.reflectorbital.com/)
 *   [AMP Sortation](https://ampsortation.com/)
