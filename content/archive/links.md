@@ -28,24 +28,21 @@ Poor-man's cloud bookmarks
 *   [n8n](https://n8n.io/) - Workflow automation platform
 *   [Using Supabase as an Auth Service](https://depshub.com/blog/using-supabase-auth-as-a-service-with-a-custom-backend/)
 *   [GoJS](https://gojs.net/latest/) - Diagram library for JS/TS
-*   [Cobalt](https://cobalt.tools/) - youtube/twitter/reddit/anything downloader of choice
-*   [Cursor Directory](https://cursor.directory/)
-*   [Sudo-flix](https://sudo-flix.rip/) - Movie pirating aggregator of choice
-*   [Levidia](https://www.levidia.ch/a) - Movie pirating aggregator 2 of choice
 *   [The Official Online Gallery of Christian Riese Lassen](https://www.lassenart.com/) - whimsical dolphin images
 *   [Market Structure Primer](https://primer.prooftrading.com/introduction/?)
-*   [Enso](https://enso.sonnet.io/) - Write now, edit later.
+*   [Enso](https://enso.sonnet.io/) - Write now, edit later
 *   [Architecture of Open Source Applications](https://aosabook.org/en/)
 *   [C2 wiki](https://wiki.c2.com/)
 *   [DESKTOPGENERATION](https://www.desktopgeneration.com/)
 *   [Collectors Weekly](https://www.collectorsweekly.com/)
 *   [Pope US Never Visited](https://newsroom.ap.org/editorial-photos-videos/detail?itemid=b1d80f8906da477a95721e93fe0c6f1c&mediatype=photo)
-*   [NTS Radio](https://www.nts.live/) - Internet radio provider of choice
-*   [t3.chat](https://t3.chat/) - AI model provider of choice
-*   [Thinking in Systems: International Bestseller](https://www.amazon.com/Thinking-Systems-Donella-H-Meadows/dp/1603580557)
 *   [Emergent Tokyo: Designing the Spontaneous City](https://www.amazon.com/Emergent-Tokyo-Patterns-Spontaneous-Micro-Urbanism/dp/1951541324)
 *   [Andreesen's Folly - The False Dichomoty of Software and Hardware](https://www.youtube.com/watch?v=v0JjG0Qfwi8)
 *   [Negev Bedouin](https://en.wikipedia.org/wiki/Negev_Bedouin#) - Pic for this article is tough
+*   [Typst](https://typst.app/) - LaTeX replacement of choice
+*   [NTS Radio](https://www.nts.live/) - Internet radio provider of choice
+*   [t3.chat](https://t3.chat/) - AI model provider of choice
+*   [Cobalt](https://cobalt.tools/) - youtube/twitter/reddit/anything downloader of choice
 
 ## Articles/Posts
 *   [Thinking and Explaining](https://mathoverflow.net/questions/38639/thinking-and-explaining)
@@ -72,6 +69,8 @@ Poor-man's cloud bookmarks
 *   [How to Read a (Research) Paper](http://graphics.cs.cmu.edu/courses/15-869-F15/How%20to%20read%20a%20paper.pdf)
 *   [Rule Thinkers In, Not Out](https://slatestarcodex.com/2019/02/26/rule-genius-in-not-out/)
 *   [How To Time Travel](https://medium.com/@bchesky/how-to-time-travel-b604096d5ed0)
+*   [Please don't throw your mind away](https://www.lesswrong.com/posts/RryyWNmJNnLowbhfC/please-don-t-throw-your-mind-away#Synopsis)
+*   [My Model of EA Burnout](https://www.lesswrong.com/posts/pDzdb4smpzT3Lwbym/my-model-of-ea-burnout)
 
 ## Blogs
 *   [Xe Iaso’s blog](https://xeiaso.net/)
@@ -206,6 +205,8 @@ Poor-man's cloud bookmarks
 *   [Evan Chen’s website](https://web.evanchen.cc/) - tons of Math Olympiad resources and _An Infinitely Large Napkin_
 *   [Why isn't the fundamental theorem of arithmetic obvious?](https://gowers.wordpress.com/2011/11/13/why-isnt-the-fundamental-theorem-of-arithmetic-obvious/)
 *   [Harold's ODE Cheat Sheet](https://www.toomey.org/tutor/harolds_cheat_sheets/Harolds_DiffEq_Cheat_Sheet.pdf)
+*   [Understanding Poles and Zeros](https://web.mit.edu/2.14/www/Handouts/PoleZero.pdf)
+
 
 ## Weightlifting
 *   [Mythical Strength](https://mythicalstrength.blogspot.com/2014/05/why-abbreviated-training-starting.html)
