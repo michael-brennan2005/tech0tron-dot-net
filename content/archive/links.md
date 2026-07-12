@@ -129,6 +129,18 @@ Poor-man's cloud bookmarks
 *   [ELF Format Cheatsheet](https://gist.github.com/x0nu11byt3/bcb35c3de461e5fb66173071a2379779)
 *   [Zola](https://www.getzola.org/) - Static site generator this site uses
 
+## FPGAs, RTL, RISCV
+* [RISC-V Card](https://www.cs.sfu.ca/~ashriram/Courses/CS295/assets/notebooks/RISCV/RISCV_CARD.pdf) - Concise reference of RISC-V ISA
+* [RISC-V Spec Library](https://docs.riscv.org/reference/home/index.html) - Expansive reference of RISC-V ISA
+* [NEORV32 RISC-V Processor](https://github.com/stnolting/neorv32)
+* [DarkRISCV](https://github.com/darklife/darkriscv)
+* [Digital Design and Computer Architecture, RISC-V Edition](https://www.amazon.com/dp/0128200642?lv=shuf&channelId=500&plpRedirect=mhFallback)
+* [YosysHQ Documentation](https://yosyshq.readthedocs.io/en/latest/) - OSS formal verification and mutation coverage
+* [ZipCPU](https://zipcpu.com/) - Excellent blog on FPGA and RTL design
+* [RISC-V Formal Verification Framework](https://github.com/YosysHQ/riscv-formal)
+* [FPGA Horizons Journal](https://www.fpgahorizons.com/journal)
+* [Adiuvo Engineering Blog](https://www.adiuvoengineering.com/) - MicroZed Chronicles
+
 ## Electronics & Embedded
 *   [The Art of Electronics](https://artofelectronics.net/)
 *   [The Internet of Things with ESP32](http://esp32.net/)
@@ -154,6 +166,7 @@ Poor-man's cloud bookmarks
 *   [How to Achieve Proper Grounding](https://www.youtube.com/live/ySuUZEjARPY?si=ayXW3PaedPZ1i5wZ)
 *   [Advanced Digital Hardware Design](https://fedevel.com/courses/advanced-digital-hardware-design)
 *   [Indistinguishable From Magic: Manufacturing Modern Computer Chips](https://www.youtube.com/watch?v=NGFhc8R_uO4&t=5s)
+* [SMD vs. NSMD Pads in PCBs](https://www.protoexpress.com/kb/solder-mask-defined-vs-non-solder-mask-defined-pads/)
 
 ## Computer Graphics
 *   [Real-Time Rendering](https://www.realtimerendering.com/) - The guidebook. Excellent for getting a lay of the land and figuring out what specific papers/technologies/techinques to look into. The book’s bibliography alone is invaluable.
