@@ -63,41 +63,19 @@
                 the cutting-edge robotics hardware used at the institute.
             </p>
             <p>
-                <strong>Ultra Wideband:</strong> My primary project concerned
-                building out a general-purpose wireless solution for future
-                projects' sensing needs. With mentorship from my team, I led
-                this project end-to-end, from the initial conceptual stages, to
-                a finished development PCB, firmware suite, and comprehensive
-                documentation.
+                <strong>Ultra Wideband:</strong> My primary project was building
+                a general-purpose wireless sensing solution for future robotics
+                projects, which I led end-to-end. After evaluating several
+                wireless protocols against the team's needs, we settled on Ultra
+                Wideband (UWB). In Altium Designer, I designed a development
+                board around an STM32 microcontroller and Qorvo DW3110 UWB
+                transceiver, then wrote a firmware suite in Rust and RTIC to
+                characterize UWB's latency, throughput, and reliability, along
+                with a Python desktop app to automate large batches of tests.
+                Finally, I validated the solution across a range of
+                configurations and environments, and documented the results for
+                future use.
             </p>
-            <ul>
-                <li>
-                    I did an initial evaluation of several wireless protocols
-                    and met with key stakeholders to discern their needs.
-                </li>
-                <li>
-                    After presenting my initial results and a further
-                    development plan to the hardware engineering team, we
-                    settled on Ultra Wideband (UWB) as the technology to move
-                    forward with. Using Altium Designer, I designed a devboard
-                    for Ultra Wideband, built around an STM32 microcontroller,
-                    and Qorvo DW3110 UWB transceiver.
-                </li>
-                <li>
-                    Next, I developed an extensive firmware suite using Rust and
-                    RTIC for characterizing Ultra Wide-band’s latency,
-                    throughput and reliability. I also developed a desktop
-                    program in Python to easily automate running large batches
-                    of UWB tests.
-                </li>
-                <li>
-                    Lastly, I conducted thorough testing of our Ultra Wide-band
-                    solution for a wide range of test configurations and
-                    environments, meticulously documented my results for future
-                    use, and gave a presentation to the engineering team on my
-                    designs, process, and findings.
-                </li>
-            </ul>
             <p>
                 <strong>Interposers: </strong>I developed multiple flex PCB
                 interposers to transmit Single-Pair Ethernet and high-voltage
@@ -109,7 +87,7 @@
             <p>
                 <strong>Motor drivers: </strong>I designed a 150V, 200A, 3-phase
                 brush-less motor driver for high-performance robotics actuation.
-                Apart of a family of in-house motor drivers, a unique feature to
+                Part of a family of in-house motor drivers, a unique feature to
                 this one was the addition of an EMI filter on its phase output
                 stages. For this filter, I conducted extensive simulation work
                 in LTSpice, and designed a test board to verify my work in the
